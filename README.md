@@ -1,2 +1,2 @@
-# @my-solid/babel-plugin
+# babel-study
 
