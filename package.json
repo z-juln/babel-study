@@ -1,0 +1,33 @@
+{
+  "name": "@my-solid/babel-plugin",
+  "version": "1.0.1",
+  "description": "my-solid-babel-plugin",
+  "main": "src/index.js",
+  "scripts": {
+    "test:my-solid": "node ./src/my-solid/test.js",
+    "test:auto-track": "node ./src/auto-track/test.js",
+    "test:globalization": "node ./src/globalization/test.js"
+  },
+  "files": [
+    "./src/index.js"
+  ],
+  "keywords": [
+    "my-solid",
+    "babel-plugin",
+    "solid",
+    "@my-solid/babel-plugin"
+  ],
+  "author": "juln",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/helper-module-imports": "^7.18.6",
+    "@babel/plugin-syntax-jsx": "^7.18.6",
+    "@babel/types": "^7.18.13"
+  },
+  "devDependencies": {
+    "@babel/helper-annotate-as-pure": "^7.18.6",
+    "@babel/helper-plugin-utils": "^7.18.9",
+    "ololog": "^1.1.175"
+  }
+}
