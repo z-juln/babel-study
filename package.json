@@ -1,21 +1,20 @@
 {
-  "name": "@my-solid/babel-plugin",
-  "version": "1.0.1",
-  "description": "my-solid-babel-plugin",
-  "main": "src/index.js",
+  "name": "babel-study",
+  "private": true,
+  "version": "1.0.0",
+  "description": "babel-study",
   "scripts": {
+    "new": "node ./scripts/new",
     "test:my-solid": "node ./src/my-solid/test.js",
     "test:auto-track": "node ./src/auto-track/test.js",
     "test:globalization": "node ./src/globalization/test.js"
   },
-  "files": [
-    "./src/index.js"
-  ],
   "keywords": [
-    "my-solid",
+    "babel",
+    "babel-study",
     "babel-plugin",
-    "solid",
-    "@my-solid/babel-plugin"
+    "study",
+    "juln"
   ],
   "author": "juln",
   "license": "ISC",
