@@ -7,7 +7,7 @@
     "new": "node ./scripts/new",
     "test:my-solid": "node ./src/my-solid/test.js",
     "test:auto-track": "node ./src/auto-track/test.js",
-    "test:globalization": "node ./src/globalization/test.js"
+    "test:i18n": "node ./src/i18n/test.js"
   },
   "keywords": [
     "babel",
@@ -22,11 +22,14 @@
     "@babel/core": "^7.18.13",
     "@babel/helper-module-imports": "^7.18.6",
     "@babel/plugin-syntax-jsx": "^7.18.6",
-    "@babel/types": "^7.18.13"
+    "@babel/types": "^7.18.13",
+    "fs-extra": "^10.1.0",
+    "translate": "^1.4.1"
   },
   "devDependencies": {
     "@babel/helper-annotate-as-pure": "^7.18.6",
     "@babel/helper-plugin-utils": "^7.18.9",
+    "@types/fs-extra": "^9.0.13",
     "ololog": "^1.1.175"
   }
 }

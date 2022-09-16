@@ -1,6 +1,8 @@
 # babel-study
 
+> <https://s.juejin.cn/ds/68BSght/>
+
 - my-solid
 - auto-track
-- globalization
+- i18n
 <!-- new project -->
