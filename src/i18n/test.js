@@ -6,6 +6,7 @@ const code1 = `
   const mode = '中文';
   const name = 'babel';
   const str = \`你好 "你好" $\{name\}\`;
+  const str2 = \`你好\`;
 
   // const comp = <p content='content'></p>;
   const content = /* i18n-ignore */'content';
@@ -24,11 +25,11 @@ const code2 = `
         nameHint: 'myI18n',
         outputDir: path.resolve(__dirname, 'i18nMap', `test${index}`),
         initialInfo: {
-          language: 'en',
-          output: 'en.json',
+          language: 'zh',
+          output: 'zh.json',
         },
         translateMap: {
-          zh: 'zh.json',
+          en: 'en.json',
         },
       }],
     ],

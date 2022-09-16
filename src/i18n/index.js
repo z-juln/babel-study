@@ -1,5 +1,6 @@
 const jsx = require('@babel/plugin-syntax-jsx').default;
 const fs = require('fs-extra');
+const generate = require('@babel/generator').default;
 const translate = require('translate');
 const path = require('path');
 const t = require('@babel/types');
@@ -13,7 +14,7 @@ const get = (pass, name) =>
 const set = (pass, name, v) =>
   pass.set(`@babel/${PLUGIN_NAME}/${name}`, v);
 
-module.exports = function({ template }) {
+module.exports = function(babel) {
   return {
     name: PLUGIN_NAME,
     inherits: jsx,
@@ -114,7 +115,6 @@ module.exports = function({ template }) {
               entries.forEach(([key, value]) => {
                 thisI18nMap[key] = value;
               });
-              console.log({filepath, thisI18nMap})
               fs.writeJSONSync(filepath, thisI18nMap, { spaces: 2 });
             });
           });
@@ -130,7 +130,7 @@ module.exports = function({ template }) {
         const key = pass.getNextI18nKey(value);
 
         path.replaceWithSourceString(
-          `${pass.identifierName}.t("${key}", ${value})`
+          `${pass.identifierName}.t("${key}", "${value.replace(/"/gm, '\\"')}")`
         );
         path.skip();
       },
@@ -140,11 +140,11 @@ module.exports = function({ template }) {
           return;
         }
         if (path.node.quasis) {
-          const value = path.node.quasis.map(q => q.value.raw).join('{placeholder}')
-            .replace(/"/gm, '\\\"');
+          const value = path.node.quasis.map(q => q.value.raw).join('{placeholder}');
+          const paramsCode = path.node.expressions.map(exp => generate(exp).code).join(',');
           const key = pass.getNextI18nKey(value);
           path.replaceWithSourceString(
-            `${pass.identifierName}.t("${key}", "${value}")`
+            `${pass.identifierName}.t("${key}", "${value.replace(/"/gm, '\\"')}", ${paramsCode})`
           );
           path.skip();
         }
