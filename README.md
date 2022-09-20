@@ -5,4 +5,5 @@
 - my-solid
 - auto-track
 - i18n
+- api-doc
 <!-- new project -->
